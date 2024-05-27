@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio-06</title>
+</head>
+<body>
+    <script>
+        let massa = prompt("Digite a massa do material radiotivo:")
+        let tempo = 0
+        massaf = massa
+        while(massaf >= 0.10){
+            massaf = massaf * 0.75
+            tempo = tempo + 30
+        }
+        document.write ("Massa inicial do material = " + massa )
+        document.write("<br>O tempo necessário para a massa desse material ser menor que 0.10 é de <br> > " + tempo + " segundos <br> > Ou " + tempo/60 + " minutos <br> > Ou " + tempo/3600 + " horas")
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="css-calculadora.css">
+</head>
+<body>
+    <p>Calculadora</p>
+    <form action="">
+        <input  class="destaque" type="text" id="valor1" placeholder="Valor 01">
+        <input  class="destaque" type="text" id="valor2" placeholder="Valor 02">
+
+        <select class="destaque" name="operador" id="operador">
+            <option value="1">+</option>
+            <option value="2">-</option>
+            <option value="3">/</option>
+            <option value="4">*</option>
+        </select>
+        
+        <button id="btnCalcula" type="button" class="destaque">Obter resultado</button>
+
+        <div class="result" id="resultado">
+            Aguardando valores...
+        </div>
+        
+    </form>
+
+    <script src="js-calculadora.js"></script>
+
+</body>
+</html>

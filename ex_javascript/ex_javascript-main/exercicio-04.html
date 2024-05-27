@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio-04</title>
+</head>
+<body>
+    <script>
+        const num = prompt('Qual a quantidade de alunos na classe?')
+        let soma = 0
+        notas = []
+        for(let i = 1; i <= num; i++){
+            notas[i] = prompt("Digite a nota do aluno " + i)
+            soma += parseFloat(notas[i])
+        }
+
+        m = soma/num
+        document.write('A média das notas dessa classe é ' + m)
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio-05</title>
+</head>
+<body>
+    <script>
+        meses = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
+        let t = []
+        somat = 0
+        ano = prompt('Digite o ano de referência: ')
+        for (let i = 0; i < 12; i++){
+            t[i]= prompt('Temperatura média em ' + meses[i])
+            somat += parseFloat(t[i])
+        }
+
+        m = somat/12
+        document.write('No ano de ' + ano + ', a temperatura média foi de ' + m.toFixed(2) + 'ºC <br> <br>')
+        document.write("Lista dos meses com temperaturas acima da média anual: <br>")
+
+        let j = 0
+        for (let i = 0; i < 12; i++){
+            if (t[i]>m){
+                document.write('>> ' + i+1 + ' - ' + meses[i] + ' ---- Temperatura média: ' + t[i] + "ºC <br>" )
+                j++
+            }
+        }
+        if (j == 0){
+            document.write("Nenhum mês ficou acima da temperatura anual =)")
+        }
+    </script>
+</body>
+</html>

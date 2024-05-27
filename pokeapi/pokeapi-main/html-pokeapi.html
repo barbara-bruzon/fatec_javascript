@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PokeAPI</title>
+</head>
+
+<body>
+    <div>
+        <input id="pokescolha" type="text">
+        <button id="pokebotao">Pokebusca</button>
+    </div>
+    <div type="text" id="pokenome"></div>
+    <img id="pokefoto_frente">
+    <img id="pokefoto_costas">
+
+    <script>
+        function preencherTela(data) {
+            document.getElementById('pokenome').innerText = data.forms[0].name
+            document.getElementById('pokefoto_frente').src = data.sprites.front_default
+            document.getElementById('pokefoto_costas').src = data.sprites.back_default
+        }
+
+        function pokepesquisa() {
+            const pokebuscar = document.getElementById('pokescolha').value
+            console.log(pokebuscar)
+            fetch('https://pokeapi.co/api/v2/pokemon/' + pokebuscar)
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data)
+                    preencherTela(data)
+            })
+        }
+        const pokescolha = document.getElementById('pokescolha').value;
+        pokebotao.addEventListener("click", pokepesquisa);
+
+    </script>
+</body>
+
+</html>

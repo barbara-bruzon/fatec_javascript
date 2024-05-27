@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio-02</title>
+</head>
+<body>
+    <h1>Compra de Maçãs</h1>
+    <input type="text" placeholder="Quantidade de maçãs" id="qtd">
+    <button onclick="calculadora()" class="botao">Calcular</button>
+    <p id="valor" class="resultado"></p>
+    <script>
+        function calculadora(){
+            qtd = document.getElementById('qtd').value
+            if(qtd<0){
+                alert('OPS! Quantidade inválida de maçãs.')
+            }
+            else if(qtd < 12){
+                vmacas = 1.30 * qtd
+            }
+            else(
+                vmacas = 1.00 * qtd
+            )
+            document.getElementById('valor').innerText = "Essa compra de maçãs ficará em R$" + vmacas.toFixed(2)
+        }
+    </script>
+</body>
+</html>

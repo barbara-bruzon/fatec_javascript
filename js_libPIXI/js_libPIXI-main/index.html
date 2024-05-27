@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abelhas coloridas</title>
+    <script src="js/pixi.js"></script>
+</head>
+
+<body>
+    <script>
+        const app = new PIXI.Application();
+        document.body.appendChild(app.view);
+
+        const beias = [];
+
+        const totalAbelhas = 20;
+
+        for (let i = 0; i < totalAbelhas; i++) {
+            const abelha = PIXI.Sprite.from('img/abelha3.png');
+
+            abelha.anchor.set(0.5);
+
+            abelha.scale.set(0.8 + Math.random() * 0.3);
+
+            abelha.x = Math.random() * app.screen.width;
+            abelha.y = Math.random() * app.screen.height;
+
+            abelha.tint = Math.random() * 0xFFFFFF;
+
+            abelha.direction = Math.random() * Math.PI * 2;
+
+            abelha.turningSpeed = Math.random() - 0.8;
+
+            abelha.speed = 2 + Math.random() * 2;
+
+            beias.push(abelha);
+
+            app.stage.addChild(abelha);
+        }
+
+        const abelhaBoundsPadding = 100;
+        const abelhaBounds = new PIXI.Rectangle(-abelhaBoundsPadding,
+            -abelhaBoundsPadding,
+            app.screen.width + abelhaBoundsPadding * 2,
+            app.screen.height + abelhaBoundsPadding * 2);
+
+        app.ticker.add(() => {
+            for (let i = 0; i < beias.length; i++) {
+                const abelha = beias[i];
+                abelha.direction += abelha.turningSpeed * 0.01;
+                abelha.x += Math.sin(abelha.direction) * abelha.speed;
+                abelha.y += Math.cos(abelha.direction) * abelha.speed;
+                abelha.rotation = -abelha.direction - Math.PI / 2;
+
+                if (abelha.x < abelhaBounds.x) {
+                    abelha.x += abelhaBounds.width;
+                } else if (abelha.x > abelhaBounds.x + abelhaBounds.width) {
+                    abelha.x -= abelhaBounds.width;
+                }
+
+                if (abelha.y < abelhaBounds.y) {
+                    abelha.y += abelhaBounds.height;
+                } else if (abelha.y > abelhaBounds.y + abelhaBounds.height) {
+                    abelha.y -= abelhaBounds.height;
+                }
+            }
+        });
+
+    </script>
+</body>
+
+</html>
